@@ -1,5 +1,6 @@
 extends Node2D
 
+signal started_gametick
 signal started_status_phase
 signal finished_status_phase
 signal started_charge_phase
