@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/scripts/UnitStatSystem.gd" type="Script" id=1]
-[ext_resource path="res://src/scripts/UnitComponent.gd" type="Script" id=2]
+[ext_resource path="res://src/scripts/UnitStatComponent.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/UnitSpriteComponent.gd" type="Script" id=2]
 [ext_resource path="res://src/assets/TestUnitSpriteFrameActive.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://src/scripts/UnitComponent.gd" type="Script" id=4]
 
 [node name="Unit" type="Node2D"]
+script = ExtResource( 4 )
 
-[node name="UnitComponent" type="AnimatedSprite" parent="."]
+[node name="UnitSpriteComponent" type="AnimatedSprite" parent="."]
 frames = ExtResource( 3 )
 script = ExtResource( 2 )
 
