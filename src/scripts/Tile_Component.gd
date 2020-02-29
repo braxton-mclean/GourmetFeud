@@ -1,20 +1,21 @@
 extends Node
 
+var is_traversable = true
+var move_cost = 1
+var unit = null setget set_unit, get_unit
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	generateTileComponent()
-
-
-
-func generateTileComponent ():
-	var is_Traversable = true
-	var Move_cost = 1
-	var unit = null
-	var x 
-	var y
-	var pos = [x,y]
-	var size_of_tile = 1
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func set_unit(new_unit):
+	# Make sure unit is valid
+	self.unit = new_unit
+	pass
+	
+func get_unit():
+	return self.unit
