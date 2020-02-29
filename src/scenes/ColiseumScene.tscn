@@ -17,17 +17,17 @@ script = ExtResource( 3 )
 [node name="TestUnit" parent="Units" instance=ExtResource( 2 )]
 position = Vector2( 180, 180 )
 
+[node name="UnitStatComponent" parent="Units/TestUnit" index="1"]
+stat_speed = 10
+
 [node name="TestUnit2" parent="Units" instance=ExtResource( 2 )]
 position = Vector2( 360, 180 )
 
 [node name="UnitStatComponent" parent="Units/TestUnit2" index="1"]
-stat_speed = 10
+stat_speed = 8
 
 [node name="TestUnit3" parent="Units" instance=ExtResource( 2 )]
 position = Vector2( 540, 180 )
-
-[node name="UnitStatComponent" parent="Units/TestUnit3" index="1"]
-stat_speed = 8
 
 [editable path="Units/TestUnit"]
 
