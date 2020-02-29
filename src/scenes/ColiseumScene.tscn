@@ -1,12 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/scripts/ColiseumScene.gd" type="Script" id=1]
-[ext_resource path="res://src/scripts/UnitStatComponent.gd" type="Script" id=2]
+[ext_resource path="res://src/scripts/ColiseumGametickSystem.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/UnitStatSystem.gd" type="Script" id=2]
 
 [node name="ColiseumScene" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="TestMapGrid" type="Node2D" parent="."]
+
 [node name="TestUnit" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="TestIntro" type="Node2D" parent="."]
