@@ -1,7 +1,7 @@
 extends Node
 
-var is_traversable = true
-var move_cost = 1
+export var is_traversable = true
+export var move_cost = 1
 var unit = null setget set_unit, get_unit
 
 # Called when the node enters the scene tree for the first time.
