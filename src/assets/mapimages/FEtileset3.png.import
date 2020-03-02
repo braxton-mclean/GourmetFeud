@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FEtileset2.png-32fac844e43a5a8e2c6bc98f3ee0aecc.stex"
+path="res://.import/FEtileset3.png-1e3127724beaa3c7877bf53b6ab1a17e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/mapimages/FEtileset2.png"
-dest_files=[ "res://.import/FEtileset2.png-32fac844e43a5a8e2c6bc98f3ee0aecc.stex" ]
+source_file="res://src/assets/mapimages/FEtileset3.png"
+dest_files=[ "res://.import/FEtileset3.png-1e3127724beaa3c7877bf53b6ab1a17e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
