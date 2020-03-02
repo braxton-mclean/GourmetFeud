@@ -1,4 +1,4 @@
-extends Node2D
+extends AnimatedSprite
 
 
 # Declare member variables here. Examples:
