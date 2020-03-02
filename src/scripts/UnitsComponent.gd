@@ -18,7 +18,11 @@ func unready_unit(unit):
 	pass
 
 
-func sort_unit_queue(unit_1, unit_2):
+func sort_unit_queue():
+	self.readied_units.sort_custom(self, "sort_units_by_tick_counter")
+
+
+func sort_units_by_tick_counter(unit_1, unit_2):
 	var unit_1_tick = unit_1.get_tick_counter()
 	var unit_2_tick = unit_2.get_tick_counter()
 	if unit_2_tick < unit_1_tick:
