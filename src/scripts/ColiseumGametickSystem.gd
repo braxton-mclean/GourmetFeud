@@ -30,6 +30,7 @@ func _ready():
 		self.connect("started_gt_phase", unit, "progress_tick_counter")
 		unit.connect("completed_turn", units_node, "unready_unit")
 		unit.connect("unit_ready", units_node, "ready_unit")
+	self.connect("finished_gt_phase", units_node, "sort_unit_queue")
 
 
 func _gametick_loop():
@@ -54,12 +55,22 @@ func _gametick_loop():
 		emit_signal("started_action_phase")
 		
 		# Dummy logic just to see processing Unit.
-		# This logic should be moved out of GameTick and into Units
-		for unit in self.units_node.readied_units:
-			var unit_stats = unit.get_node("UnitStatComponent")
+		# This logic should be moved out of GameTick
+		# and into the manager for Units
+		for unit in self.units_node.units:
+			print(unit.get_tick_counter())
+		
+		while not self.units_node.readied_units.empty():
+			var unit = self.units_node.readied_units.pop_front()
 			print(unit.name + "'s Turn!")
 			unit.take_turn()
 			yield(unit, "completed_turn")
+			pass
+		
+#		for unit in self.units_node.readied_units:
+#			print(unit.name + "'s Turn!")
+#			unit.take_turn()
+#			yield(unit, "completed_turn")
 		
 		emit_signal("finished_action_phase")
 		

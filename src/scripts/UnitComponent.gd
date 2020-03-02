@@ -22,8 +22,12 @@ func take_turn():
 
 func progress_tick_counter(gametick_counter):
 	self.unit_stats.tick_counter += self.unit_stats.stat_speed
-	if self.unit_stats.tick_counter > 100:
+	if self.unit_stats.tick_counter >= 100:
 		emit_signal("unit_ready", self)
+
+
+func get_tick_counter():
+	return unit_stats.tick_counter
 
 
 #func _unit_update_loop():
