@@ -30,6 +30,7 @@ func _ready():
 		self.connect("started_gt_phase", unit, "progress_tick_counter")
 		unit.connect("completed_turn", units_node, "unready_unit")
 		unit.connect("unit_ready", units_node, "ready_unit")
+	self.connect("finished_gt_phase", units_node, "sort_unit_queue")
 
 
 func _gametick_loop():

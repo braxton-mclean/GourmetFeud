@@ -11,7 +11,6 @@ func _ready():
 
 func ready_unit(unit):
 	self.readied_units.append(unit)
-	self.readied_units.sort_custom(self, "sort_unit_queue")
 
 
 func unready_unit(unit):
