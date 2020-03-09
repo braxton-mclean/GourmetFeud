@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 signal started_gametick
 signal started_status_phase
@@ -53,24 +53,23 @@ func _gametick_loop():
 		
 		# ===== Action Phase =====
 		emit_signal("started_action_phase")
+		var units_active_turn_state = self.units_node.take_active_turns()
+		if units_active_turn_state:
+			yield(self.units_node, "finished_active_turns")
 		
 		# Dummy logic just to see processing Unit.
 		# This logic should be moved out of GameTick
 		# and into the manager for Units
-		for unit in self.units_node.units:
-			print(unit.get_tick_counter())
 		
-		while not self.units_node.readied_units.empty():
-			var unit = self.units_node.readied_units.pop_front()
-			print(unit.name + "'s Turn!")
-			unit.take_turn()
-			yield(unit, "completed_turn")
-			pass
+		#for unit in self.units_node.units:
+		#	print(unit.get_tick_counter())
 		
-#		for unit in self.units_node.readied_units:
-#			print(unit.name + "'s Turn!")
-#			unit.take_turn()
-#			yield(unit, "completed_turn")
+		#while not self.units_node.readied_units.empty():
+		#	var unit = self.units_node.readied_units.pop_front()
+		#	print(unit.name + "'s Turn!")
+		#	unit.take_turn()
+		#	yield(unit, "completed_turn")
+		#	pass
 		
 		emit_signal("finished_action_phase")
 		

@@ -12,12 +12,21 @@ func _ready():
 	pass 
 
 
-func take_turn():
+#func take_turn():
+#	unit_sprite.flip_v = true
+#	yield(get_tree().create_timer(3), "timeout")
+#	unit_sprite.flip_v = false
+#	self.unit_stats.tick_counter = 0
+#	emit_signal("completed_turn", self)
+
+
+func take_active_turn():
 	unit_sprite.flip_v = true
-	yield(get_tree().create_timer(3), "timeout")
+	yield()
 	unit_sprite.flip_v = false
 	self.unit_stats.tick_counter = 0
-	emit_signal("completed_turn", self)
+	self.unit_stats.turn_remaining_actions = self.unit_stats.turn_remaining_actions_def
+	self.unit_stats.turn_remaining_moves = self.unit_stats.turn_remaining_moves_def
 
 
 func progress_tick_counter(gametick_counter):
