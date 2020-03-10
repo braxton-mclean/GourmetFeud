@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/Unit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/UI/BattleMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/combat/GameTick.gd" type="Script" id=5]
+
+[node name="Coliseum" type="Node"]
+script = ExtResource( 1 )
+
+[node name="GameTick" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Units" type="YSort" parent="."]
+
+[node name="TestUnit" parent="Units" instance=ExtResource( 2 )]
+position = Vector2( 180, 180 )
+
+[node name="UnitStatComponent" parent="Units/TestUnit" index="1"]
+stat_speed = 10
+
+[node name="TestUnit2" parent="Units" instance=ExtResource( 2 )]
+position = Vector2( 360, 180 )
+
+[node name="UnitStatComponent" parent="Units/TestUnit2" index="1"]
+stat_speed = 8
+
+[node name="TestUnit3" parent="Units" instance=ExtResource( 2 )]
+position = Vector2( 540, 180 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BattleMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = -1.36038
+margin_top = 718.64
+margin_right = -1.36038
+margin_bottom = 718.64
+
+[editable path="Units/TestUnit"]
+
+[editable path="Units/TestUnit2"]
+
+[editable path="Units/TestUnit3"]
