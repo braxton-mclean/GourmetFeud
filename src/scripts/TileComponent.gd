@@ -14,8 +14,8 @@ func _ready():
 
 func set_unit(new_unit):
 	# Make sure unit is valid
-	unit = new_unit
+	self.unit = new_unit
 	pass
 	
 func get_unit():
-	return unit
+	return self.unit

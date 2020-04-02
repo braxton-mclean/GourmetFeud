@@ -3,6 +3,8 @@ extends Node
 
 const tile = preload("res://src/scenes/Tile.tscn")
 
+var activeUnit = [0, 0]
+
 func _ready():
 	generateMapGridComponent()
 	
@@ -17,3 +19,6 @@ func generateMapGridComponent ():
 		arr.append(row)
 	# both lines below are used for debugging purposes, do NOT use in the actual game!
 	# arr[1][3] = 1
+
+func insertAtPosition (x, y, val, arr):
+	arr[x][y] = val
