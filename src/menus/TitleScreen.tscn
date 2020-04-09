@@ -1,13 +1,21 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/titalScreenImages/BackgroundImage.png" type="Texture" id=1]
+[ext_resource path="res://src/assets/titalScreenImages/BackgroundImage.png" type="Texture" id=1]
 [ext_resource path="res://src/menus/TitleScreen.gd" type="Script" id=2]
-[ext_resource path="res://src/titalScreenImages/Start.png" type="Texture" id=3]
-[ext_resource path="res://src/titalScreenImages/Gourmet-Feud.png" type="Texture" id=4]
-[ext_resource path="res://src/titalScreenImages/Exit.png" type="Texture" id=5]
-[ext_resource path="res://src/titalScreenImages/Exit_Focused.png" type="Texture" id=6]
-[ext_resource path="res://src/titalScreenImages/Start_Focused.png" type="Texture" id=7]
-[ext_resource path="res://src/Music/Intro_Theme_baddass_music.wav" type="AudioStream" id=8]
+[ext_resource path="res://src/assets/titalScreenImages/Start.png" type="Texture" id=3]
+[ext_resource path="res://src/assets/titalScreenImages/Gourmet-Feud.png" type="Texture" id=4]
+[ext_resource path="res://src/assets/titalScreenImages/Exit.png" type="Texture" id=5]
+[ext_resource path="res://src/assets/titalScreenImages/Exit_Focused.png" type="Texture" id=6]
+[ext_resource path="res://src/assets/titalScreenImages/Start_Focused.png" type="Texture" id=7]
+[ext_resource path="res://src/assets/music/intro_theme.wav" type="AudioStream" id=8]
+
+
+
+
+
+
+
+
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 2 )

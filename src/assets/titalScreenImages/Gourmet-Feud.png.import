@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Exit_Focused.png-9ed382a67984276d9ed82847db8b822d.stex"
+path="res://.import/Gourmet-Feud.png-ed9de40d8776fb677f1ed9b246025b95.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/titalScreenImages/Exit_Focused.png"
-dest_files=[ "res://.import/Exit_Focused.png-9ed382a67984276d9ed82847db8b822d.stex" ]
+source_file="res://src/assets/titalScreenImages/Gourmet-Feud.png"
+dest_files=[ "res://.import/Gourmet-Feud.png-ed9de40d8776fb677f1ed9b246025b95.stex" ]
 
 [params]
 

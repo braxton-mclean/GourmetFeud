@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BackgroundImage.png-d533c1767a47cbffc2d14aeb3a78a094.stex"
+path="res://.import/Exit.png-90fb703ba74791005a4b588795d7d203.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/titalScreenImages/BackgroundImage.png"
-dest_files=[ "res://.import/BackgroundImage.png-d533c1767a47cbffc2d14aeb3a78a094.stex" ]
+source_file="res://src/assets/titalScreenImages/Exit.png"
+dest_files=[ "res://.import/Exit.png-90fb703ba74791005a4b588795d7d203.stex" ]
 
 [params]
 
