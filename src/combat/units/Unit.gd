@@ -19,6 +19,14 @@ func ready():
 	selectable = true
 
 
+func initialize():
+	# Initialize skills
+	# actions.initialize(skills.get_children())
+	stats = stats.copy()
+	stats.connect("health_depleted", self, "_on_health_depleted")
+	pass
+
+
 func set_selected(value):
 	selected = value
 
@@ -29,5 +37,14 @@ func set_selectable(value):
 		set_selected(false)
 
 
-func initialize():
-	pass
+func take_damage(hit):
+	stats.take_damage(hit)
+	if stats.health > 0:
+		# play hurt animation
+		pass
+
+
+func _on_health_depleted():
+	selectable = false
+	# play death animation
+	emit_signal("unit_died", self)

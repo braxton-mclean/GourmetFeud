@@ -12,7 +12,7 @@ func initialize(unit : Unit):
 	initialized = true
 
 
-func execute():
+func execute(targets : Array):
 	assert(initialized)
 	print("%s missing overwrite of the execute method" % name)
 	return false

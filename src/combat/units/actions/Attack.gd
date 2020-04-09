@@ -7,7 +7,7 @@ func execute(targets):
 		return false
 	
 	for target in targets:
-		var hit = Hit.new(self.actor)
+		var hit = Hit.new(self.actor.stats.strength)
 		target.take_damage(hit)
 	
 	return true
