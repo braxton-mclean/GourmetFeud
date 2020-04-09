@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cursor_Art_Yellow.png-ea4c750f3d31f378cae0abd9d02fb44d.stex"
+path="res://.import/Cursor_Art_Yellow.png-c26c9ac40018591570d4051f28c87b72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/CursorArt/Cursor_Art_Yellow.png"
-dest_files=[ "res://.import/Cursor_Art_Yellow.png-ea4c750f3d31f378cae0abd9d02fb44d.stex" ]
+source_file="res://src/assets/cursorImages/Cursor_Art_Yellow.png"
+dest_files=[ "res://.import/Cursor_Art_Yellow.png-c26c9ac40018591570d4051f28c87b72.stex" ]
 
 [params]
 
