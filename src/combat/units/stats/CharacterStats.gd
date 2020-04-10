@@ -2,7 +2,7 @@ extends Node
 
 class_name CharacterStats
 
-signal health_changed(new_health)
+signal health_changed(prev_health, new_health)
 signal health_depleted()
 
 var modifiers = {}
@@ -16,8 +16,12 @@ var confidence : int
 var dexterity : int
 var speed : int
 var move : int
-var _default_moves : int
-var _default_actions : int
+var remaining_actions : int
+var remaining_moves : int
+var default_moves : int
+var default_actions : int
+
+var tick_counter = 0
 
 
 func initialize(stats : StartingStats):
@@ -30,23 +34,25 @@ func initialize(stats : StartingStats):
 	self.dexterity = stats.dexterity
 	self.speed = stats.speed
 	self.move = stats.move
-	self._default_moves = stats._default_moves
-	self._default_actions = stats._default_actions
+	self.default_moves = stats.default_moves
+	self.default_actions = stats.default_actions
 
 
 func set_max_health(value):
-	self.max_health = max(0, value)
+	max_health = max(0, value)
 
 
 func take_damage(hit):
+	var prev_health = self.health
 	self.health -= hit.damage
 	self.health = max(0, health)
-	emit_signal("health_changed", health)
+	emit_signal("health_changed", prev_health, health)
 	if self.health == 0:
 		emit_signal("health_depleted")
 
 
 func heal(amount):
-	health += amount
-	health = max(health, max_health)
-	emit_signal("health_changed", amount)
+	var prev_health = self.health
+	self.health += amount
+	self.health = max(self.health, self.max_health)
+	emit_signal("health_changed", prev_health, health)

@@ -12,5 +12,7 @@ export var confidence : int = 1
 export var dexterity : int = 1
 export var speed : int = 5
 export var move : int = 4
-export var _default_moves : int = 1
-export var _default_actions : int = 1
+export var default_moves : int = 1
+export var default_actions : int = 1
+
+export var vit_curve : Curve

@@ -51,10 +51,12 @@ func _ready():
 func initialize():
 	# Connect components to relevant signals
 	for unit in units.units:
+		unit.initialize()
 		self.connect("started_gtp_phase", unit, "progress_tick_counter")
 		unit.connect("completed_turn", self, "unready_unit")
 		unit.connect("unit_ready", self, "ready_unit")
 	self.connect("finished_gtp_phase", self, "sort_unit_queue")
+	print("initialized gametick")
 
 
 func gametick_loop():
@@ -75,7 +77,7 @@ func gametick_loop():
 		emit_signal("started_gtp_phase", self.gametick_counter)
 		print("Gametick Loop Iteration: " + str(self.gametick_counter))
 		for unit in units.units:
-			print(unit.unit_stats.tick_counter, "\t| ", unit.name)
+			print(unit.stats.tick_counter, "\t| ", unit.name)
 		
 		emit_signal("finished_gtp_phase")
 		
@@ -128,17 +130,19 @@ func take_active_turns():
 			which yields a state to resume once the turn is completed 
 			(ie. wind-down)
 		"""
-		var unit_active_turn_state = unit.take_active_turn()
+		
+		yield(unit.take_active_turn(), "completed")
 		
 		# Set up battle menu at Unit location w/ small offset
-		battlemenu.set_position(Vector2(unit.position.x + 10, unit.position.y + 10))
+		battlemenu.set_position(Vector2(unit.position.x + 32, unit.position.y + 32))
 		# TODO: Connect Battle Menu button events to Unit specifics like navigation etc.
 		
 		# Set yield to UI's turn complete signal (The player selects "Wait")
 		yield(bm_waitbutton, "pressed")
 		
 		# Once complete signal received, let unit finish its active turn (ie. wind down)
-		unit_active_turn_state.resume()
+		battlemenu.set_position(Vector2(10000, 10000))
+		unit.finish_active_turn()
 		
 		# Finally, remove the unit from the queue of readied units
 		# Need to do this here so if the unit cancels its action we can instead

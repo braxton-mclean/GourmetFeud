@@ -3,14 +3,21 @@ extends Position2D
 class_name Unit
 
 signal unit_died(unit)
+signal unit_ready(unit)
+signal completed_turn()
 
-export var stats : Resource
 onready var actions = $Actions
 onready var ai = $AI
+onready var stats = $Stats
+onready var sprite = $Sprite
+onready var anim_sprite = $Sprite/AnimatedSprite
 
 var selected : bool = false setget set_selected
 var selectable : bool = false setget set_selectable
 var display_name : String
+
+
+export var job : Resource
 
 export var player_party = false
 
@@ -22,9 +29,32 @@ func ready():
 func initialize():
 	# Initialize skills
 	# actions.initialize(skills.get_children())
-	stats = stats.copy()
+	stats.initialize(job)
 	stats.connect("health_depleted", self, "_on_health_depleted")
 	pass
+
+
+func take_active_turn():
+	anim_sprite.play("flourish")
+	yield(anim_sprite, "animation_finished")
+	anim_sprite.play("active")
+
+
+func finish_active_turn():
+	self.stats.tick_counter = 0
+	self.stats.remaining_actions = self.stats.default_actions
+	self.stats.remaining_moves = self.stats.default_moves
+	anim_sprite.play("default")
+
+
+func progress_tick_counter(gametick_counter):
+	self.stats.tick_counter += self.stats.speed
+	if self.stats.tick_counter >= 100:
+		emit_signal("unit_ready", self)
+
+
+func get_tick_counter():
+	return self.stats.tick_counter
 
 
 func set_selected(value):
@@ -46,5 +76,6 @@ func take_damage(hit):
 
 func _on_health_depleted():
 	selectable = false
+	anim_sprite.flip_v = true
 	# play death animation
 	emit_signal("unit_died", self)
