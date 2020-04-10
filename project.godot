@@ -8,9 +8,44 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "CharacterStats",
+"language": "GDScript",
+"path": "res://src/combat/units/stats/CharacterStats.gd"
+}, {
+"base": "Node",
+"class": "CombatAction",
+"language": "GDScript",
+"path": "res://src/combat/CombatAction.gd"
+}, {
+"base": "Reference",
+"class": "Hit",
+"language": "GDScript",
+"path": "res://src/combat/Hit.gd"
+}, {
+"base": "Node",
+"class": "Job",
+"language": "GDScript",
+"path": "res://src/combat/units/jobs/Job.gd"
+}, {
+"base": "Resource",
+"class": "StartingStats",
+"language": "GDScript",
+"path": "res://src/combat/units/jobs/StartingStats.gd"
+}, {
+"base": "Position2D",
+"class": "Unit",
+"language": "GDScript",
+"path": "res://src/combat/units/Unit.gd"
+} ]
 _global_script_class_icons={
-
+"CharacterStats": "",
+"CombatAction": "",
+"Hit": "",
+"Job": "",
+"StartingStats": "",
+"Unit": ""
 }
 
 [application]

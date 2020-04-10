@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scripts/ColiseumGametickSystem.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/Unit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scripts/UnitsComponent.gd" type="Script" id=3]
 [ext_resource path="res://src/scenes/UI/BattleMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scripts/MapGridComponent.gd" type="Script" id=5]
 
 [node name="ColiseumScene" type="Node"]
 script = ExtResource( 1 )
@@ -37,6 +38,7 @@ margin_left = -1.36038
 margin_top = 718.64
 margin_right = -1.36038
 margin_bottom = 718.64
+script = ExtResource( 5 )
 
 [editable path="Units/TestUnit"]
 
