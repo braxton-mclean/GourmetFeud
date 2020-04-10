@@ -14,5 +14,3 @@ export var speed : int = 5
 export var move : int = 4
 export var default_moves : int = 1
 export var default_actions : int = 1
-
-export var vit_curve : Curve
