@@ -4,7 +4,7 @@ class_name Unit
 
 signal unit_died(unit)
 signal unit_ready(unit)
-signal completed_turn()
+signal completed_turn(unit)
 
 onready var actions = $Actions
 onready var ai = $AI
@@ -16,6 +16,9 @@ var selected : bool = false setget set_selected
 var selectable : bool = false setget set_selectable
 var display_name : String
 
+var upcoming_turns = []
+
+export var preview_sprite : Resource
 
 export var job : Resource
 
@@ -41,16 +44,31 @@ func take_active_turn():
 
 
 func finish_active_turn():
-	self.stats.tick_counter = 0
+	print("finishing turn")
+	self.stats.tick_counter -= 100
 	self.stats.remaining_actions = self.stats.default_actions
 	self.stats.remaining_moves = self.stats.default_moves
+	emit_signal("completed_turn", self)
 	anim_sprite.play("default")
 
 
-func progress_tick_counter(gametick_counter):
+func progress_tick_counter(_gametick_counter):
 	self.stats.tick_counter += self.stats.speed
 	if self.stats.tick_counter >= 100:
 		emit_signal("unit_ready", self)
+
+
+func calculate_upcoming_turns(gametick):
+	upcoming_turns.clear()
+	var temp_tick_counter : int = get_tick_counter() 
+	var temp_gametick : int = gametick
+	while upcoming_turns.size() < 5:
+		while temp_tick_counter < 100:
+			temp_tick_counter += self.stats.speed
+			temp_gametick += 1
+		upcoming_turns.append(UpcomingTurn.new(self, temp_gametick, temp_tick_counter))
+		temp_tick_counter -= 100
+	pass
 
 
 func get_tick_counter():

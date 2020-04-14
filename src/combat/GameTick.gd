@@ -39,6 +39,7 @@ var gametick_counter = 0
 	Queue of readied units to take their turns the next available Action Phase
 """
 var readied_units = [] 
+var upcoming_turns = []
 
 func _ready():
 
@@ -53,9 +54,10 @@ func initialize():
 	for unit in units.units:
 		unit.initialize()
 		self.connect("started_gtp_phase", unit, "progress_tick_counter")
-		unit.connect("completed_turn", self, "unready_unit")
+		unit.connect("completed_turn", self, "calculate_upcoming_turns")
 		unit.connect("unit_ready", self, "ready_unit")
 	self.connect("finished_gtp_phase", self, "sort_unit_queue")
+	self.calculate_upcoming_turns()
 	print("initialized gametick")
 
 
@@ -95,11 +97,6 @@ func gametick_loop():
 
 func ready_unit(unit):
 	self.readied_units.append(unit)
-
-
-func unready_unit(unit):
-	#self.readied_units.erase(unit)
-	pass
 
 
 func sort_unit_queue():
@@ -155,3 +152,27 @@ func take_active_turns():
 		self.readied_units.pop_front()
 	print("emitting")
 	emit_signal("finished_active_turns")
+
+
+func calculate_upcoming_turns(_unit = null):
+	print("sorting")
+	upcoming_turns.clear()
+	for unit in units.units:
+		unit.calculate_upcoming_turns(self.gametick_counter)
+		for turn in unit.upcoming_turns:
+			upcoming_turns.append(turn)
+	self.upcoming_turns.sort_custom(self, "sort_upcoming_turns")
+	for turn in self.upcoming_turns:
+		print(turn.unit.name)
+
+
+func sort_upcoming_turns(turn1 : UpcomingTurn, turn2 : UpcomingTurn):
+	if turn2.gametick < turn1.gametick:
+		return false
+	elif turn1.gametick < turn2.gametick:
+		return true
+	else:
+		if turn2.tick_counter < turn1.tick_counter:
+			return true
+		else:
+			return false
