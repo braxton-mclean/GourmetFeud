@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/celica.png-7dd5cb3995820698b372a60d06f65eac.stex"
+path="res://.import/sprite_celica_flourish4.png-bc7a3315709ac7df46ce814956848d63.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/sprites/units/celica.png"
-dest_files=[ "res://.import/celica.png-7dd5cb3995820698b372a60d06f65eac.stex" ]
+source_file="res://src/assets/sprites/units/celica/celica_flourish/sprite_celica_flourish4.png"
+dest_files=[ "res://.import/sprite_celica_flourish4.png-bc7a3315709ac7df46ce814956848d63.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

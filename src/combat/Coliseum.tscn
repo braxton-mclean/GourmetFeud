@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://src/combat/units/jobs/Brigand.tres" type="Resource" id=7]
 [ext_resource path="res://src/combat/units/jobs/Bandit.tres" type="Resource" id=8]
 [ext_resource path="res://src/maps/ColosseumA.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/combat/animation/celica/celica_spriteframes.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://src/combat/animation/soldier_terror/soldier_terror_spriteframes.tres" type="SpriteFrames" id=11]
+[ext_resource path="res://src/combat/animation/brigand_terror/brigand_terror_spriteframs.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://src/combat/animation/alm/alm_spriteframes.tres" type="SpriteFrames" id=13]
 
 [node name="Coliseum" type="Node"]
 script = ExtResource( 1 )
@@ -25,18 +29,30 @@ script = ExtResource( 3 )
 position = Vector2( 288, 384 )
 job = ExtResource( 2 )
 
-[node name="Alm2" parent="Units" instance=ExtResource( 6 )]
+[node name="AnimatedSprite" parent="Units/Alm/Sprite" index="1"]
+frames = ExtResource( 13 )
+
+[node name="Celica" parent="Units" instance=ExtResource( 6 )]
 position = Vector2( 432, 384 )
 job = ExtResource( 2 )
 player_party = true
 
-[node name="EnemyBandit" parent="Units" instance=ExtResource( 6 )]
+[node name="AnimatedSprite" parent="Units/Celica/Sprite" index="1"]
+frames = ExtResource( 10 )
+
+[node name="EnemySoldier" parent="Units" instance=ExtResource( 6 )]
 position = Vector2( 336, 384 )
 job = ExtResource( 8 )
+
+[node name="AnimatedSprite" parent="Units/EnemySoldier/Sprite" index="1"]
+frames = ExtResource( 11 )
 
 [node name="EnemyBrigand" parent="Units" instance=ExtResource( 6 )]
 position = Vector2( 384, 384 )
 job = ExtResource( 7 )
+
+[node name="AnimatedSprite" parent="Units/EnemyBrigand/Sprite" index="1"]
+frames = ExtResource( 12 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -47,3 +63,9 @@ margin_right = -1.36038
 margin_bottom = 718.64
 
 [editable path="Units/Alm"]
+
+[editable path="Units/Celica"]
+
+[editable path="Units/EnemySoldier"]
+
+[editable path="Units/EnemyBrigand"]
