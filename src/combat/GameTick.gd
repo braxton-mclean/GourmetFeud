@@ -162,8 +162,15 @@ func calculate_upcoming_turns(_unit = null):
 		for turn in unit.upcoming_turns:
 			upcoming_turns.append(turn)
 	self.upcoming_turns.sort_custom(self, "sort_upcoming_turns")
+	
+	print("======= Turn Order =======")
+	var count = 1
 	for turn in self.upcoming_turns:
-		print(turn.unit.name)
+		if count == 1:
+			print("Up Next: " + turn.unit.name)
+		else:
+			print(str(count) + ": " + turn.unit.name)
+		count += 1
 
 
 func sort_upcoming_turns(turn1 : UpcomingTurn, turn2 : UpcomingTurn):

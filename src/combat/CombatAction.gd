@@ -4,10 +4,10 @@ class_name CombatAction
 
 var initialized = false
 
-onready var actor : Unit = get_parent().get_owner()
+onready var actor = get_parent().get_owner()
 
 
-func initialize(unit : Unit):
+func initialize(unit):
 	actor = unit
 	initialized = true
 

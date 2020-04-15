@@ -9,8 +9,8 @@ signal completed_turn(unit)
 onready var actions = $Actions
 onready var ai = $AI
 onready var stats = $Stats
-onready var sprite = $Sprite
-onready var anim_sprite = $Sprite/AnimatedSprite
+onready var sprite : Sprite = $Sprite
+onready var anim_sprite : AnimatedSprite = $Sprite/AnimatedSprite
 
 var selected : bool = false setget set_selected
 var selectable : bool = false setget set_selectable
@@ -38,8 +38,12 @@ func initialize():
 
 
 func take_active_turn():
-	anim_sprite.play("flourish")
-	yield(anim_sprite, "animation_finished")
+	var sprite_frames = anim_sprite.get_sprite_frames()
+	if (sprite_frames.has_animation("flourish")):
+		anim_sprite.play("flourish")
+		yield(anim_sprite, "animation_finished")
+	else:
+		yield(get_tree().create_timer(.1), "timeout")
 	anim_sprite.play("active")
 
 

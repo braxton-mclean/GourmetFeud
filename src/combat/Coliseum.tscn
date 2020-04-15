@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/combat/animation/soldier_terror/soldier_terror_spriteframes.tres" type="SpriteFrames" id=11]
 [ext_resource path="res://src/combat/animation/brigand_terror/brigand_terror_spriteframs.tres" type="SpriteFrames" id=12]
 [ext_resource path="res://src/combat/animation/alm/alm_spriteframes.tres" type="SpriteFrames" id=13]
+[ext_resource path="res://src/scenes/UI/BattleMenu.gd" type="Script" id=14]
 
 [node name="Coliseum" type="Node"]
 script = ExtResource( 1 )
@@ -54,6 +55,16 @@ job = ExtResource( 7 )
 [node name="AnimatedSprite" parent="Units/EnemyBrigand/Sprite" index="1"]
 frames = ExtResource( 12 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 48, 48 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1793
+limit_bottom = 1105
+limit_smoothed = true
+editor_draw_limits = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BattleMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
@@ -61,6 +72,7 @@ margin_left = -1.36038
 margin_top = 718.64
 margin_right = -1.36038
 margin_bottom = 718.64
+script = ExtResource( 14 )
 
 [editable path="Units/Alm"]
 
