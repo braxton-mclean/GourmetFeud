@@ -1,0 +1,228 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/greenPortraitBg.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Red/btn (12).png" type="Texture" id=3]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/panelCloud (1).png" type="Texture" id=4]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Red/btn (13).png" type="Texture" id=5]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Orange/btn (13).png" type="Texture" id=6]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Orange/btn (2).png" type="Texture" id=7]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Grey/btn (2).png" type="Texture" id=8]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Grey/btn (4).png" type="Texture" id=9]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/panel (1).png" type="Texture" id=10]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Green/btn (1).png" type="Texture" id=11]
+[ext_resource path="res://src/assets/infomenuImages/GUIPack_byJanaChumi/Red/btn (1).png" type="Texture" id=12]
+[ext_resource path="res://src/assets/fonts/AncientModernTales-a7Po.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://src/assets/infomenuImages/charactersimages/FE8Alm.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 13 )
+
+[node name="Menu" type="Node2D"]
+
+[node name="MintBackground" type="Sprite" parent="."]
+position = Vector2( 672.092, 1.5174 )
+scale = Vector2( 0.488297, 0.466417 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CloudPanel" type="Sprite" parent="."]
+position = Vector2( 684.103, 31.5125 )
+scale = Vector2( 0.503203, 0.571214 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="LegendPanel2" type="Sprite" parent="."]
+position = Vector2( 718.694, 334.261 )
+scale = Vector2( 0.323318, 0.566102 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Character" type="Sprite" parent="."]
+position = Vector2( 804.309, 202.058 )
+scale = Vector2( 0.131592, 0.135161 )
+texture = ExtResource( 14 )
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 979.0
+margin_top = 9.0
+margin_right = 1017.0
+margin_bottom = 49.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowStatsButton" type="TextureButton" parent="."]
+margin_left = 824.966
+margin_top = 134.095
+margin_right = 974.966
+margin_bottom = 171.095
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 987.293
+margin_top = 333.242
+margin_right = 1019.29
+margin_bottom = 365.242
+rect_rotation = -0.888884
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviousButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 679.842
+margin_top = 333.242
+margin_right = 711.842
+margin_bottom = 365.242
+rect_rotation = -0.888884
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LegendName" type="RichTextLabel" parent="."]
+margin_left = 856.301
+margin_top = 139.974
+margin_right = 943.301
+margin_bottom = 163.974
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Legend: Alm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="RichTextLabel" parent="."]
+margin_left = 725.0
+margin_top = 355.0
+margin_right = 1025.0
+margin_bottom = 660.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Health Points (HP): 2000 |
+Strength (STR): 2000 |
+Vitality (VIT): 2000 |
+Charisma (CHR): 2000 |
+Confidence (CON):  2000 |
+Dexterity (DEX): 2000 |
+Speed (SPD): 2000 |
+Charged Action: N/A |
+Held Action: N/A |"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 672.0
+margin_top = 4.0
+margin_right = 1027.0
+margin_bottom = 602.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopMargin" type="Label" parent="Window"]
+margin_right = 355.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 0, 35 )
+
+[node name="Header" type="Label" parent="Window"]
+margin_top = 39.0
+margin_right = 355.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 0, 72 )
+text = "Character Info Menu"
+align = 1
+valign = 1
+
+[node name="Panel" type="VBoxContainer" parent="Window"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 115.0
+margin_right = 355.0
+margin_bottom = 559.0
+size_flags_vertical = 3
+
+[node name="Character" type="VBoxContainer" parent="Window/Panel"]
+margin_right = 355.0
+margin_bottom = 85.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Window/Panel"]
+margin_top = 89.0
+margin_right = 355.0
+margin_bottom = 174.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/Panel/HBoxContainer5"]
+margin_right = 115.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Window/Panel/HBoxContainer5"]
+margin_left = 119.0
+margin_right = 234.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Window/Panel/HBoxContainer5"]
+margin_left = 238.0
+margin_right = 355.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Window/Panel"]
+margin_top = 178.0
+margin_right = 355.0
+margin_bottom = 263.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Window/Panel"]
+margin_top = 267.0
+margin_right = 355.0
+margin_bottom = 352.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Window/Panel"]
+margin_top = 356.0
+margin_right = 355.0
+margin_bottom = 444.0
+size_flags_vertical = 3
+
+[node name="BottomMargin" type="Label" parent="Window"]
+margin_top = 563.0
+margin_right = 355.0
+margin_bottom = 598.0
+rect_min_size = Vector2( 0, 35 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 898.729
+margin_top = 350.058
+margin_right = 974.729
+margin_bottom = 385.058
+__meta__ = {
+"_edit_use_anchors_": false
+}
