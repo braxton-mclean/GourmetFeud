@@ -131,14 +131,15 @@ func take_active_turns():
 		yield(unit.take_active_turn(), "completed")
 		
 		# Set up battle menu at Unit location w/ small offset
-		battlemenu.set_position(Vector2(unit.position.x + 32, unit.position.y + 32))
+		battlemenu.attach_to_unit(unit)
+		# set_position(Vector2(unit.position.x + 32, unit.position.y + 32))
 		# TODO: Connect Battle Menu button events to Unit specifics like navigation etc.
 		
 		# Set yield to UI's turn complete signal (The player selects "Wait")
 		yield(bm_waitbutton, "pressed")
 		
 		# Once complete signal received, let unit finish its active turn (ie. wind down)
-		battlemenu.set_position(Vector2(10000, 10000))
+		battlemenu.detach_from_unit()
 		unit.finish_active_turn()
 		
 		# Finally, remove the unit from the queue of readied units
