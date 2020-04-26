@@ -8,16 +8,88 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "CharacterStats",
+"language": "GDScript",
+"path": "res://src/combat/units/stats/CharacterStats.gd"
+}, {
+"base": "Node",
+"class": "CombatAction",
+"language": "GDScript",
+"path": "res://src/combat/CombatAction.gd"
+}, {
+"base": "Node",
+"class": "GameTick",
+"language": "GDScript",
+"path": "res://src/combat/GameTick.gd"
+}, {
+"base": "Reference",
+"class": "Hit",
+"language": "GDScript",
+"path": "res://src/combat/Hit.gd"
+}, {
+"base": "Node",
+"class": "Job",
+"language": "GDScript",
+"path": "res://src/combat/units/jobs/Job.gd"
+}, {
+"base": "Resource",
+"class": "StartingStats",
+"language": "GDScript",
+"path": "res://src/combat/units/jobs/StartingStats.gd"
+}, {
+"base": "Position2D",
+"class": "Unit",
+"language": "GDScript",
+"path": "res://src/combat/units/Unit.gd"
+}, {
+"base": "Node",
+"class": "UnitAI",
+"language": "GDScript",
+"path": "res://src/combat/units/ai/UnitAI.gd"
+}, {
+"base": "Position2D",
+"class": "UnitAnim",
+"language": "GDScript",
+"path": "res://src/combat/animation/UnitAnim.gd"
+}, {
+"base": "Reference",
+"class": "UpcomingTurn",
+"language": "GDScript",
+"path": "res://src/combat/units/UpcomingTurn.gd"
+} ]
 _global_script_class_icons={
-
+"CharacterStats": "",
+"CombatAction": "",
+"GameTick": "",
+"Hit": "",
+"Job": "",
+"StartingStats": "",
+"Unit": "",
+"UnitAI": "",
+"UnitAnim": "",
+"UpcomingTurn": ""
 }
 
 [application]
 
 config/name="GourmetFeud"
-config/icon="res://src/assets/icon.png"
+run/main_scene="res://src/main/Game.tscn"
+config/icon="res://src/assets/sprites/icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[memory]
+
+limits/message_queue/max_size_kb=5128
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
