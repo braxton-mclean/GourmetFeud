@@ -39,11 +39,16 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "active",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "move_left",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "move_right",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ) ],
@@ -59,10 +64,5 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "move_down",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "move_right",
 "speed": 8.0
 } ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/combat/animation/alm/alm_spriteframes.tres" type="SpriteFrames" id=13]
 [ext_resource path="res://src/scenes/UI/BattleMenu.gd" type="Script" id=14]
 [ext_resource path="res://src/combat/MapCamera.gd" type="Script" id=15]
+[ext_resource path="res://src/scenes/UI/TurnOrderPreview.tscn" type="PackedScene" id=16]
 
 [node name="Coliseum" type="Node"]
 script = ExtResource( 1 )
@@ -81,6 +82,8 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 15 )
 speed = 1000
+
+[node name="TurnOrderBox" parent="CanvasLayer" instance=ExtResource( 16 )]
 
 [editable path="Units/Alm"]
 
