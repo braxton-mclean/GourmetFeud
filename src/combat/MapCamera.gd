@@ -7,17 +7,17 @@ func _ready():
 	self.make_current()
 
 func _process(delta):
-	if self.position.x < self.limit_left + get_viewport().size.x / 2:
-		self.position.x = self.limit_left + get_viewport().size.x / 2
+	if self.position.x < self.limit_left + 640:
+		self.position.x = self.limit_left + 640
 	
-	if self.position.x > self.limit_right + get_viewport().size.x / 2:
-		self.position.x = self.limit_right + get_viewport().size.x / 2
+	if self.position.x > self.limit_right + 640:
+		self.position.x = self.limit_right + 640
 	
-	if self.position.y < self.limit_top + get_viewport().size.y / 2:
-		self.position.y = self.limit_top + get_viewport().size.y / 2
+	if self.position.y < self.limit_top + 360:
+		self.position.y = self.limit_top + 360
 	
-	if self.position.y > self.limit_bottom + get_viewport().size.y / 2:
-		self.position.y = self.limit_bottom + get_viewport().size.y / 2
+	if self.position.y > self.limit_bottom + 360:
+		self.position.y = self.limit_bottom + 360
 	# self.position = get_camera_position()
 	
 	if Input.is_key_pressed(KEY_LEFT):
