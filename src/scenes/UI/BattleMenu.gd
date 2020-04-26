@@ -5,6 +5,7 @@ export var def_unit_offset : Vector2
 onready var camera_node = get_parent().get_node("Camera2D")
 var unit_offset
 
+
 func _process(delta):
 	if attached_unit != null:
 		set_position(attached_unit.position + unit_offset - (camera_node.position - Vector2(640, 360)))

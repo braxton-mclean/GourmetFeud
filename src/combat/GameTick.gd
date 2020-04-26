@@ -1,5 +1,7 @@
 extends Node
 
+class_name GameTick
+
 """
 List of GameTick Signals | Keeps flow of combat strict in order processing
 GameTick Signals should emit in this order:
@@ -31,6 +33,7 @@ onready var battlemenu = get_parent().get_node("CanvasLayer/BattleMenu")
 onready var bm_waitbutton = battlemenu.get_node("BMButtonContainer/BMWaitButton")
 
 signal finished_active_turns
+signal upcoming_turns_sorted
 
 var active = false
 var gametick_counter = 0
@@ -39,7 +42,7 @@ var gametick_counter = 0
 	Queue of readied units to take their turns the next available Action Phase
 """
 var readied_units = [] 
-var upcoming_turns = []
+var upcoming_turns : Array = []
 
 func _ready():
 
@@ -77,9 +80,9 @@ func gametick_loop():
 		
 		# ===== GameTick+ Phase =====
 		emit_signal("started_gtp_phase", self.gametick_counter)
-		print("Gametick Loop Iteration: " + str(self.gametick_counter))
-		for unit in units.units:
-			print(unit.stats.tick_counter, "\t| ", unit.name)
+#		print("Gametick Loop Iteration: " + str(self.gametick_counter))
+#		for unit in units.units:
+#			print(unit.stats.tick_counter, "\t| ", unit.name)
 		
 		emit_signal("finished_gtp_phase")
 		
@@ -110,7 +113,10 @@ func sort_units_by_tick_counter(unit_1, unit_2):
 	if unit_2_tick < unit_1_tick:
 		return true
 	else:
-		return false
+		if unit_2.name > unit_1.name:
+			return true
+		else:
+			return false
 
 
 func take_active_turns():
@@ -165,6 +171,7 @@ func calculate_upcoming_turns(_unit = null):
 	self.upcoming_turns.sort_custom(self, "sort_upcoming_turns")
 	
 	print("======= Turn Order =======")
+	emit_signal("upcoming_turns_sorted")
 	var count = 1
 	for turn in self.upcoming_turns:
 		if count == 1:
@@ -183,4 +190,7 @@ func sort_upcoming_turns(turn1 : UpcomingTurn, turn2 : UpcomingTurn):
 		if turn2.tick_counter < turn1.tick_counter:
 			return true
 		else:
-			return false
+			if turn2.unit.name > turn1.unit.name:
+				return true
+			else:
+				return false

@@ -18,7 +18,7 @@ var display_name : String
 
 var upcoming_turns = []
 
-export var preview_sprite : Resource
+export var preview_sprite : Texture
 
 export var job : Resource
 

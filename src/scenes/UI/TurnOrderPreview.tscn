@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/assets/sprites/units/alm/alm_active/sprite_alm_active2.png" type="Texture" id=1]
 [ext_resource path="res://src/assets/sprites/turn_order_shadow.png" type="Texture" id=2]
 [ext_resource path="res://src/assets/sprites/turn_order_background.png" type="Texture" id=3]
+[ext_resource path="res://src/scenes/UI/TurnOrderPreview.gd" type="Script" id=4]
 
 [node name="TurnOrderPreview" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -656.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,6 +187,31 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="TurnOrderBox/Sprite7"]
+show_behind_parent = true
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 96, 96 )
+texture = ExtResource( 2 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite8" type="TextureRect" parent="TurnOrderBox"]
+margin_left = 700.0
+margin_right = 796.0
+margin_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 96, 96 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TurnOrderBox/Sprite8"]
 show_behind_parent = true
 margin_right = 64.0
 margin_bottom = 64.0
