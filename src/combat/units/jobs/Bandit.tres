@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://src/combat/units/jobs/StartingStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+job_name = "Bandit"
+max_health = 15
+strength = 8
+vitality = 1
+charisma = 1
+confidence = 1
+dexterity = 1
+speed = 8
+move = 4
+default_moves = 1
+default_actions = 1
