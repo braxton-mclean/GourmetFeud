@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GourmetFeud"
-run/main_scene="res://src/menus/TitleScreen.tscn"
+run/main_scene="res://src/scenes/StartOfTurn.tscn"
 config/icon="res://src/assets/icon.png"
 
 [display]
