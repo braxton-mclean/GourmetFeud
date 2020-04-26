@@ -18,5 +18,3 @@ func sort_preview_list():
 		else:
 			sprite_node.set_texture(null)
 		count += 1
-
-	pass

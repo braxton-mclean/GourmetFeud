@@ -80,9 +80,9 @@ func gametick_loop():
 		
 		# ===== GameTick+ Phase =====
 		emit_signal("started_gtp_phase", self.gametick_counter)
-#		print("Gametick Loop Iteration: " + str(self.gametick_counter))
-#		for unit in units.units:
-#			print(unit.stats.tick_counter, "\t| ", unit.name)
+		print("Gametick Loop Iteration: " + str(self.gametick_counter))
+		for unit in units.units:
+			print(unit.stats.tick_counter, "\t| ", unit.name)
 		
 		emit_signal("finished_gtp_phase")
 		
@@ -157,12 +157,12 @@ func take_active_turns():
 		# move and attack actions it has left this turn. 
 		# It gets reset on the .resume() call above
 		self.readied_units.pop_front()
-	print("emitting")
 	emit_signal("finished_active_turns")
 
 
 func calculate_upcoming_turns(_unit = null):
-	print("sorting")
+	print("======= Turn Order =======")
+	print("Sorting Upcoming Turns")
 	upcoming_turns.clear()
 	for unit in units.units:
 		unit.calculate_upcoming_turns(self.gametick_counter)
@@ -170,15 +170,7 @@ func calculate_upcoming_turns(_unit = null):
 			upcoming_turns.append(turn)
 	self.upcoming_turns.sort_custom(self, "sort_upcoming_turns")
 	
-	print("======= Turn Order =======")
 	emit_signal("upcoming_turns_sorted")
-	var count = 1
-	for turn in self.upcoming_turns:
-		if count == 1:
-			print("Up Next: " + turn.unit.name)
-		else:
-			print(str(count) + ": " + turn.unit.name)
-		count += 1
 
 
 func sort_upcoming_turns(turn1 : UpcomingTurn, turn2 : UpcomingTurn):
