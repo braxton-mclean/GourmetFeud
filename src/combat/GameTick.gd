@@ -31,6 +31,8 @@ onready var coliseum = get_parent()
 onready var units = coliseum.get_node("Units")
 onready var battlemenu = get_parent().get_node("CanvasLayer/BattleMenu")
 onready var bm_waitbutton = battlemenu.get_node("BMButtonContainer/BMWaitButton")
+onready var almstatsmenu = get_parent().get_node("CanvasLayer/AlmMenu")
+onready var celicastatsmenu = get_parent().get_node("CanvasLayer/CelicaMenu")
 
 signal finished_active_turns
 signal upcoming_turns_sorted
@@ -133,6 +135,15 @@ func take_active_turns():
 			which yields a state to resume once the turn is completed 
 			(ie. wind-down)
 		"""
+		
+		almstatsmenu.attachunit(unit)
+		#almstatsmenu.attach_to_unit(unit)
+		almstatsmenu._update()
+		
+		
+		celicastatsmenu.attachunit(unit)
+		#celicastatsmenu.attach_to_unit(unit)
+		celicastatsmenu._update()
 		
 		yield(unit.take_active_turn(), "completed")
 		

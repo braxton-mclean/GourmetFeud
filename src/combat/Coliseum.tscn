@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://src/assets/sprites/units/soldier_terror/soldier_terror_active/sprite_soldier_terror_active0.png" type="Texture" id=18]
 [ext_resource path="res://src/assets/sprites/units/brigand_terror/brigand_terror_active/sprite_brigand_terror_active2.png" type="Texture" id=19]
 [ext_resource path="res://src/assets/sprites/units/celica/celica_active/sprite_celica_active2.png" type="Texture" id=20]
+[ext_resource path="res://src/scenes/UI/CharacterInfoMenu.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/scenes/UI/CharacterInfoMenu2.tscn" type="PackedScene" id=22]
 
 [node name="Coliseum" type="Node"]
 script = ExtResource( 1 )
@@ -92,6 +94,13 @@ script = ExtResource( 15 )
 speed = 1000
 
 [node name="TurnOrderPreview" parent="CanvasLayer" instance=ExtResource( 16 )]
+
+[node name="AlmMenu" parent="CanvasLayer" instance=ExtResource( 21 )]
+position = Vector2( -7.50317, -3.43756 )
+
+[node name="CelicaMenu" parent="CanvasLayer" instance=ExtResource( 22 )]
+position = Vector2( -367.411, -4.0274 )
+[connection signal="health_changed" from="Units/Alm/Stats" to="CanvasLayer/AlmMenu" method="_on_Stats_health_changed"]
 
 [editable path="Units/Alm"]
 

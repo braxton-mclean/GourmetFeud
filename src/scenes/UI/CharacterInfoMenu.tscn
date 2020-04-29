@@ -1,64 +1,64 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Red/btn (12).png" type="Texture" id=1]
-[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/panelCloud (1).png" type="Texture" id=2]
-[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Orange/btn (1).png" type="Texture" id=3]
-[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/greenPortraitBg.png" type="Texture" id=4]
-[ext_resource path="res://src/assets/menuimages/characterimages/FE Celica.png" type="Texture" id=5]
-[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/panel (2).png" type="Texture" id=6]
+[ext_resource path="res://src/assets/menuimages/characterimages/FE Alm.png" type="Texture" id=1]
+[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Grey/btn (12).png" type="Texture" id=2]
+[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/redportraitBg.png" type="Texture" id=3]
+[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/panelCloud (1).png" type="Texture" id=4]
+[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Red/btn (12).png" type="Texture" id=5]
+[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Green/btn (1).png" type="Texture" id=6]
 [ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Orange/btn (12).png" type="Texture" id=7]
-[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/Grey/btn (12).png" type="Texture" id=8]
-[ext_resource path="res://src/menus/CharacterInfoMenu.gd" type="Script" id=9]
-[ext_resource path="res://src/assets/fonts/JmharkhamRegular-KnPy.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://src/assets/fonts/JmharkhamRegular-KnPy.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://src/assets/menuimages/GUIPack_byJanaChumi/panel (2).png" type="Texture" id=9]
+[ext_resource path="res://src/scenes/UI/CharacterInfoMenu.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
-font_data = ExtResource( 10 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 10 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 10 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 10 )
+font_data = ExtResource( 8 )
 
 [node name="Menu" type="Node2D"]
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="MintBackground" type="Sprite" parent="."]
-position = Vector2( 672.092, 1.5174 )
-scale = Vector2( 0.488297, 0.466417 )
-texture = ExtResource( 4 )
+position = Vector2( 928.417, 89.6299 )
+scale = Vector2( 0.488297, 0.492491 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="CloudPanel" type="Sprite" parent="."]
-position = Vector2( 684.103, 31.5125 )
+position = Vector2( 940.428, 153 )
 scale = Vector2( 0.503203, 0.571214 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="StatPanel" type="Sprite" parent="."]
-position = Vector2( 718.694, 322.244 )
+position = Vector2( 975.019, 443.731 )
 scale = Vector2( 0.497846, 0.401389 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 centered = false
 
 [node name="Character" type="Sprite" parent="."]
-position = Vector2( 863.002, 182.219 )
-scale = Vector2( 0.091361, 0.0813235 )
-texture = ExtResource( 5 )
+position = Vector2( 1070.08, 314.04 )
+scale = Vector2( 0.242414, 0.235765 )
+texture = ExtResource( 1 )
 
 [node name="ExitButton" type="TextureButton" parent="."]
-margin_left = 979.0
-margin_top = 9.0
-margin_right = 1017.0
-margin_bottom = 49.0
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 8 )
+margin_left = 1233.97
+margin_top = 101.88
+margin_right = 1271.97
+margin_bottom = 141.88
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 7 )
 expand = true
 __meta__ = {
@@ -66,22 +66,21 @@ __meta__ = {
 }
 
 [node name="ShowStatsButton" type="TextureButton" parent="."]
-margin_left = 725.686
-margin_top = 279.799
-margin_right = 875.686
-margin_bottom = 316.799
-texture_normal = ExtResource( 3 )
+margin_left = 1081.29
+margin_top = 255.582
+margin_right = 1231.29
+margin_bottom = 292.582
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NextButton" type="TextureButton" parent="."]
-visible = false
-margin_left = 987.293
-margin_top = 333.242
-margin_right = 1019.29
-margin_bottom = 365.242
+margin_left = 1243.62
+margin_top = 454.729
+margin_right = 1275.62
+margin_bottom = 486.729
 rect_rotation = -0.888884
 expand = true
 __meta__ = {
@@ -89,11 +88,10 @@ __meta__ = {
 }
 
 [node name="PreviousButton" type="TextureButton" parent="."]
-visible = false
-margin_left = 679.842
-margin_top = 333.242
-margin_right = 711.842
-margin_bottom = 365.242
+margin_left = 936.167
+margin_top = 454.729
+margin_right = 968.167
+margin_bottom = 486.729
 rect_rotation = -0.888884
 expand = true
 __meta__ = {
@@ -101,10 +99,10 @@ __meta__ = {
 }
 
 [node name="Legend" type="RichTextLabel" parent="."]
-margin_left = 743.491
-margin_top = 235.041
-margin_right = 866.491
-margin_bottom = 285.04
+margin_left = 1103.89
+margin_top = 210.829
+margin_right = 1226.89
+margin_bottom = 260.828
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Legend"
@@ -113,23 +111,23 @@ __meta__ = {
 }
 
 [node name="LegendName" type="RichTextLabel" parent="."]
-margin_left = 768.15
-margin_top = 276.349
-margin_right = 883.15
-margin_bottom = 320.349
+margin_left = 1129.83
+margin_top = 252.283
+margin_right = 1244.83
+margin_bottom = 296.283
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Celica"
+text = "Alm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StatList" type="RichTextLabel" parent="."]
-margin_left = 725.675
-margin_top = 346.573
-margin_right = 961.675
-margin_bottom = 629.573
+margin_left = 982.0
+margin_top = 468.06
+margin_right = 1218.0
+margin_bottom = 751.06
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Health Points (HP):        |
@@ -146,10 +144,10 @@ __meta__ = {
 }
 
 [node name="Base&Current" type="RichTextLabel" parent="."]
-margin_left = 879.262
-margin_top = 299.535
-margin_right = 1022.26
-margin_bottom = 358.535
+margin_left = 1135.59
+margin_top = 421.022
+margin_right = 1278.59
+margin_bottom = 480.022
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "     Stats
@@ -159,10 +157,10 @@ __meta__ = {
 }
 
 [node name="BaseHP" type="RichTextLabel" parent="."]
-margin_left = 857.837
-margin_top = 348.209
-margin_right = 896.837
-margin_bottom = 377.209
+margin_left = 1114.0
+margin_top = 470.0
+margin_right = 1156.0
+margin_bottom = 499.0
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0.466667, 0.117647, 1 )
 text = "2000"
@@ -171,10 +169,10 @@ __meta__ = {
 }
 
 [node name="CurrentHP" type="RichTextLabel" parent="."]
-margin_left = 903.787
-margin_top = 348.209
-margin_right = 954.787
-margin_bottom = 372.209
+margin_left = 1160.11
+margin_top = 469.696
+margin_right = 1211.11
+margin_bottom = 493.696
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.0117647, 0.862745, 0.227451, 1 )
 text = "2000"
@@ -183,10 +181,10 @@ __meta__ = {
 }
 
 [node name="BaseSTR" type="RichTextLabel" parent="."]
-margin_left = 836.0
-margin_top = 373.0
-margin_right = 879.0
-margin_bottom = 397.0
+margin_left = 1092.33
+margin_top = 494.487
+margin_right = 1135.33
+margin_bottom = 518.487
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.541176, 0, 0, 1 )
 text = "2000"
@@ -195,10 +193,10 @@ __meta__ = {
 }
 
 [node name="CurrentSTR" type="RichTextLabel" parent="."]
-margin_left = 883.252
-margin_top = 372.791
-margin_right = 927.252
-margin_bottom = 396.791
+margin_left = 1139.31
+margin_top = 494.125
+margin_right = 1188.31
+margin_bottom = 518.125
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.913725, 0.00392157, 0.00392157, 1 )
 text = "2000"
@@ -207,10 +205,10 @@ __meta__ = {
 }
 
 [node name="BaseVIT" type="RichTextLabel" parent="."]
-margin_left = 819.0
-margin_top = 397.0
-margin_right = 857.0
-margin_bottom = 421.0
+margin_left = 1074.98
+margin_top = 518.936
+margin_right = 1124.98
+margin_bottom = 542.936
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0.454902, 0.282353, 1 )
 text = "2000"
@@ -219,10 +217,10 @@ __meta__ = {
 }
 
 [node name="CurrentVIT" type="RichTextLabel" parent="."]
-margin_left = 866.718
-margin_top = 397.256
-margin_right = 903.718
-margin_bottom = 421.256
+margin_left = 1122.98
+margin_top = 518.936
+margin_right = 1180.98
+margin_bottom = 542.936
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0.878431, 0.545098, 1 )
 text = "2000"
@@ -231,10 +229,10 @@ __meta__ = {
 }
 
 [node name="BaseCHR" type="RichTextLabel" parent="."]
-margin_left = 843.0
-margin_top = 421.0
-margin_right = 878.0
-margin_bottom = 445.0
+margin_left = 1098.98
+margin_top = 542.936
+margin_right = 1149.98
+margin_bottom = 566.936
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.172549, 0, 0.596078, 1 )
 text = "2000"
@@ -243,10 +241,10 @@ __meta__ = {
 }
 
 [node name="CurrentCHR" type="RichTextLabel" parent="."]
-margin_left = 892.09
-margin_top = 421.0
-margin_right = 930.09
-margin_bottom = 445.0
+margin_left = 1148.31
+margin_top = 542.125
+margin_right = 1192.31
+margin_bottom = 566.125
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.478431, 0.270588, 0.988235, 1 )
 text = "2000"
@@ -255,10 +253,10 @@ __meta__ = {
 }
 
 [node name="BaseCON" type="RichTextLabel" parent="."]
-margin_left = 850.0
-margin_top = 445.0
-margin_right = 890.0
-margin_bottom = 469.0
+margin_left = 1105.98
+margin_top = 566.936
+margin_right = 1154.98
+margin_bottom = 590.936
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.639216, 0, 0.615686, 1 )
 text = "2000"
@@ -267,10 +265,10 @@ __meta__ = {
 }
 
 [node name="CurrentCON" type="RichTextLabel" parent="."]
-margin_left = 896.531
-margin_top = 445.209
-margin_right = 936.531
-margin_bottom = 469.209
+margin_left = 1152.86
+margin_top = 566.696
+margin_right = 1192.86
+margin_bottom = 590.696
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 0, 0.964706, 1 )
 text = "2000"
@@ -279,10 +277,10 @@ __meta__ = {
 }
 
 [node name="BaseDEX" type="RichTextLabel" parent="."]
-margin_left = 843.0
-margin_top = 468.0
-margin_right = 881.0
-margin_bottom = 492.0
+margin_left = 1098.98
+margin_top = 589.936
+margin_right = 1144.98
+margin_bottom = 613.936
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.458824, 0.266667, 0, 1 )
 text = "2000"
@@ -291,10 +289,10 @@ __meta__ = {
 }
 
 [node name="CurrentDEX" type="RichTextLabel" parent="."]
-margin_left = 889.205
-margin_top = 468.628
-margin_right = 928.205
-margin_bottom = 492.628
+margin_left = 1145.31
+margin_top = 590.125
+margin_right = 1191.31
+margin_bottom = 614.125
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 0.584314, 0.0117647, 1 )
 text = "2000"
@@ -303,10 +301,10 @@ __meta__ = {
 }
 
 [node name="BaseSPD" type="RichTextLabel" parent="."]
-margin_left = 820.0
-margin_top = 492.0
-margin_right = 865.0
-margin_bottom = 520.0
+margin_left = 1076.33
+margin_top = 613.487
+margin_right = 1121.33
+margin_bottom = 641.487
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0.247059, 0.396078, 1 )
 text = "2000"
@@ -315,10 +313,10 @@ __meta__ = {
 }
 
 [node name="CurrentSPD" type="RichTextLabel" parent="."]
-margin_left = 865.531
-margin_top = 493.047
-margin_right = 901.531
-margin_bottom = 520.047
+margin_left = 1122.0
+margin_top = 612.0
+margin_right = 1166.0
+margin_bottom = 639.0
 custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0.623529, 1, 1 )
 text = "2000"
@@ -328,10 +326,10 @@ __meta__ = {
 
 [node name="Window" type="VBoxContainer" parent="."]
 visible = false
-margin_left = 672.0
-margin_top = 4.0
-margin_right = 1027.0
-margin_bottom = 602.0
+margin_left = 924.016
+margin_top = 5.3623
+margin_right = 1279.02
+margin_bottom = 603.362
 __meta__ = {
 "_edit_use_anchors_": false
 }
