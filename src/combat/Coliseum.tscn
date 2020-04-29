@@ -76,7 +76,7 @@ script = ExtResource( 14 )
 def_unit_offset = Vector2( 36, 36 )
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
-position = Vector2( 640, 360 )
+position = Vector2( 770, 430 )
 current = true
 limit_left = 6
 limit_top = 6
