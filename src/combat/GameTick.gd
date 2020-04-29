@@ -135,15 +135,17 @@ func take_active_turns():
 			which yields a state to resume once the turn is completed 
 			(ie. wind-down)
 		"""
-		
-		almstatsmenu.attachunit(unit)
-		#almstatsmenu.attach_to_unit(unit)
-		almstatsmenu._update()
-		
-		
-		celicastatsmenu.attachunit(unit)
-		#celicastatsmenu.attach_to_unit(unit)
-		celicastatsmenu._update()
+		#Allows the different battle menus to appear on their turn
+		if unit.name == "Alm":
+			almstatsmenu.attachunit(unit)
+			almstatsmenu._update()
+			almstatsmenu.toggle_visibility(true)
+			celicastatsmenu.toggle_visibility(false)
+		elif unit.name == "Celica":
+			celicastatsmenu.attachunit(unit)
+			celicastatsmenu._update()
+			almstatsmenu.toggle_visibility(false)
+			celicastatsmenu.toggle_visibility(true)
 		
 		yield(unit.take_active_turn(), "completed")
 		

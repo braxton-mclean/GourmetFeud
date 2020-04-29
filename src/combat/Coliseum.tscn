@@ -95,11 +95,13 @@ speed = 1000
 
 [node name="TurnOrderPreview" parent="CanvasLayer" instance=ExtResource( 16 )]
 
-[node name="AlmMenu" parent="CanvasLayer" instance=ExtResource( 21 )]
-position = Vector2( -7.50317, -3.43756 )
-
 [node name="CelicaMenu" parent="CanvasLayer" instance=ExtResource( 22 )]
-position = Vector2( -367.411, -4.0274 )
+visible = false
+position = Vector2( -6.91577, -4.55444 )
+
+[node name="AlmMenu" parent="CanvasLayer" instance=ExtResource( 21 )]
+visible = false
+position = Vector2( -7.50317, -3.43756 )
 [connection signal="health_changed" from="Units/Alm/Stats" to="CanvasLayer/AlmMenu" method="_on_Stats_health_changed"]
 
 [editable path="Units/Alm"]

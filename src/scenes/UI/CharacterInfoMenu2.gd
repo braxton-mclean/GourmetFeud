@@ -17,30 +17,31 @@ func _update():
 	var dexter = unit.stats.dexterity
 	var speedz = unit.stats.speed
 	
-	$BaseHP2.text = "27"
+	$BaseHP2.text = "25"
 	$CurrentHP2.text = str(healthz)
 	 
-	$BaseSTR2.text = "14"
+	$BaseSTR2.text = "8"
 	$CurrentSTR2.text = str(strengthz)
 	 
-	$BaseVIT2.text = "6"
+	$BaseVIT2.text = "1"
 	$CurrentVIT2.text = str(vital)
 	 
-	$BaseCHR2.text = "4"
+	$BaseCHR2.text = "1"
 	$CurrentCHR2.text = str(charisma)
 	 
-	$BaseCON2.text = "5"
+	$BaseCON2.text = "1"
 	$CurrentCON2.text = str(confident)
 	 
-	$BaseDEX2.text = "3"
+	$BaseDEX2.text = "1"
 	$CurrentDEX2.text = str(dexter)
 	 
-	$BaseSPD2.text = "25"
+	$BaseSPD2.text = "10"
 	$CurrentSPD2.text = str(speedz)
 	 
 	
 
-
+func toggle_visibility (visibility):
+	self.visible = visibility
 
 func attachunit(unit):
 	self.unit = unit
