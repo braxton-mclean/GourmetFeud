@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/combat/units/actions/Move.gd" type="Script" id=1]
 
 [node name="BattleMenu" type="Panel"]
 anchor_right = 0.075
 anchor_bottom = 0.113
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -36,6 +39,7 @@ hint_tooltip = "Use this Unit's Movement to travel the battlefield.
 Usually only one Movement per turn."
 text = "Move"
 align = 0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,3 +54,4 @@ align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="BMButtonContainer/BMMoveButton" to="BMButtonContainer/BMMoveButton" method="_on_BMMoveButton_pressed"]

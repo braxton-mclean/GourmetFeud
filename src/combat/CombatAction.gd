@@ -6,7 +6,6 @@ var initialized = false
 
 onready var actor = get_parent().get_owner()
 
-
 func initialize(unit):
 	actor = unit
 	initialized = true
