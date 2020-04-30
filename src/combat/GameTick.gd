@@ -146,6 +146,9 @@ func take_active_turns():
 			celicastatsmenu._update()
 			almstatsmenu.toggle_visibility(false)
 			celicastatsmenu.toggle_visibility(true)
+		else:
+			almstatsmenu.toggle_visibility(false)
+			celicastatsmenu.toggle_visibility(false)
 		
 		yield(unit.take_active_turn(), "completed")
 		
