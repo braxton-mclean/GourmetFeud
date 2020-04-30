@@ -31,7 +31,7 @@ onready var coliseum = get_parent()
 onready var units = coliseum.get_node("Units")
 onready var battlemenu = get_parent().get_node("CanvasLayer/BattleMenu")
 onready var bm_waitbutton = battlemenu.get_node("BMButtonContainer/BMWaitButton")
-onready var mapgrid = get_parent().get_node("Ground/TileMap")
+onready var map = get_parent().get_node("Map")
 
 signal finished_active_turns
 signal upcoming_turns_sorted
@@ -61,12 +61,6 @@ func initialize():
 		unit.connect("unit_ready", self, "ready_unit")
 	self.connect("finished_gtp_phase", self, "sort_unit_queue")
 	self.calculate_upcoming_turns()
-
-	# setting up the mapgrid
-	print("set up mapgrid for TraversablesColosseumA")
-	var mapGrid = coliseum.get_node("Ground/TileMap")
-	mapGrid.initialize("TraversablesColosseumA")
-	# done with mapgrid initialization
 
 	print("initialized gametick")
 

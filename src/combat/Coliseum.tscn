@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://src/combat/animation/soldier_terror/soldier_terror_spriteframes.tres" type="SpriteFrames" id=11]
 [ext_resource path="res://src/combat/animation/brigand_terror/brigand_terror_spriteframs.tres" type="SpriteFrames" id=12]
 [ext_resource path="res://src/combat/animation/alm/alm_spriteframes.tres" type="SpriteFrames" id=13]
-[ext_resource path="res://src/scenes/UI/BattleMenu.gd" type="Script" id=14]
 [ext_resource path="res://src/combat/MapCamera.gd" type="Script" id=15]
 [ext_resource path="res://src/scenes/UI/TurnOrderPreview.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/assets/sprites/units/alm/alm_active/sprite_alm_active2.png" type="Texture" id=17]
@@ -23,8 +22,10 @@
 
 [node name="Coliseum" type="Node"]
 script = ExtResource( 1 )
+map_data = "TraversablesColosseumA"
 
-[node name="Ground" parent="." instance=ExtResource( 9 )]
+[node name="Map" parent="." instance=ExtResource( 9 )]
+debug_map = true
 
 [node name="GameTick" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -68,14 +69,6 @@ frames = ExtResource( 12 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BattleMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_left = -100.0
-margin_top = -100.0
-margin_right = -100.0
-margin_bottom = -100.0
-script = ExtResource( 14 )
-def_unit_offset = Vector2( 36, 36 )
-
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 position = Vector2( 770, 430 )
 current = true
@@ -93,6 +86,12 @@ script = ExtResource( 15 )
 speed = 1000
 
 [node name="TurnOrderPreview" parent="CanvasLayer" instance=ExtResource( 16 )]
+
+[node name="BattleMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_left = -100.0
+margin_top = -100.0
+margin_right = -100.0
+margin_bottom = -100.0
 
 [editable path="Units/Alm"]
 
