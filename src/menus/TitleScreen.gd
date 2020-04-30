@@ -14,7 +14,7 @@ func _physics_process(delta):
 		$MarginContainer/VBoxContainer/VBoxContainer2/Exit.grab_focus()
 		
 func _on_PressStartToPlay_pressed():
-	get_tree().change_scene("res://src/scenes/ColiseumScene.tscn")
+	get_tree().quit()
 #Load scene on click
 func _on_Exit_pressed():
 	get_tree().quit()
