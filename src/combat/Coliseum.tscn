@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -97,16 +97,16 @@ position = Vector2( -6.91577, -4.55444 )
 visible = false
 position = Vector2( -7.50317, -3.43756 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 23 )
-autoplay = true
-[connection signal="health_changed" from="Units/Alm/Stats" to="CanvasLayer/AlmMenu" method="_on_Stats_health_changed"]
-
 [node name="BattleMenu" parent="CanvasLayer" instance=ExtResource( 4 )]
 margin_left = -100.0
 margin_top = -100.0
 margin_right = -100.0
 margin_bottom = -100.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+autoplay = true
+[connection signal="health_changed" from="Units/Alm/Stats" to="CanvasLayer/AlmMenu" method="_on_Stats_health_changed"]
 
 [editable path="Units/Alm"]
 
