@@ -1,16 +1,26 @@
 extends Node
 
+onready var unit = get_parent()
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func initialize():
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func move_to_loc(_destination):
+	pass
+
+
+func set_move_right():
+	pass
+
+
+func set_move_left():
+	pass
+
+
+func set_move_up():
+	pass
+
+
+func set_move_down():
+	pass

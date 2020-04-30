@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/combat/units/jobs/Job.gd"
 }, {
+"base": "Node",
+"class": "Pathfinding",
+"language": "GDScript",
+"path": "res://src/scripts/Pathfinding.gd"
+}, {
 "base": "Resource",
 "class": "StartingStats",
 "language": "GDScript",
@@ -65,6 +70,7 @@ _global_script_class_icons={
 "GameTick": "",
 "Hit": "",
 "Job": "",
+"Pathfinding": "",
 "StartingStats": "",
 "Unit": "",
 "UnitAI": "",

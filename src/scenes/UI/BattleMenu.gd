@@ -5,6 +5,7 @@ export var def_unit_offset : Vector2
 onready var camera_node = get_parent().get_node("Camera2D")
 var unit_offset
 
+# TODO: Connect Battle Menu button events to Unit specifics like navigation etc.
 
 func _process(delta):
 	if attached_unit != null:
