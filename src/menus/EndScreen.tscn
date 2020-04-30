@@ -57,3 +57,14 @@ scene_to_load = "res://src/menus/TitleScreen.tscn"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="EndGame" type="Button" parent="."]
+margin_left = 629.73
+margin_top = 378.756
+margin_right = 712.73
+margin_bottom = 398.756
+text = "EndGame"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="EndGame" to="." method="_on_EndGame_pressed"]

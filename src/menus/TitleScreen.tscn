@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/assets/titalScreenImages/BackgroundImage.png" type="Texture" id=1]
 [ext_resource path="res://src/menus/TitleScreen.gd" type="Script" id=2]
-[ext_resource path="res://src/Buttons/MenuButton.gd" type="Script" id=3]
 [ext_resource path="res://src/assets/titalScreenImages/Gourmet-Feud.png" type="Texture" id=4]
 [ext_resource path="res://src/assets/music/intro_theme.wav" type="AudioStream" id=8]
 [ext_resource path="res://src/scenes/FadeIn.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Buttons/PlayButton.tscn" type="PackedScene" id=11]
 
 [node name="TitleScreen" type="Control"]
+rect_pivot_offset = Vector2( -796.069, 205.131 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,15 +49,25 @@ margin_right = 419.0
 margin_bottom = 226.0
 size_flags_horizontal = 4
 
-[node name="PlayButton" type="Button" parent="MarginContainer/Menu/Buttons" instance=ExtResource( 11 )]
+[node name="PlayButton" parent="MarginContainer/Menu/Buttons" instance=ExtResource( 11 )]
 margin_right = 148.0
 margin_bottom = 20.0
 text = "PRESS PLAY TO START"
-script = ExtResource( 3 )
-scene_to_load = "res://src/menus/EndScreen.tscn"
+scene_to_load = "res://src/main/Game.tscn"
 
 [node name="FadeIn" parent="." instance=ExtResource( 9 )]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="EndGame" type="Button" parent="."]
+margin_left = 595.655
+margin_top = 399.13
+margin_right = 743.655
+margin_bottom = 419.13
+text = "End Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="EndGame" to="." method="_on_EndGame_pressed"]
