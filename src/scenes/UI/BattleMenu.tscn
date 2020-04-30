@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/combat/units/actions/Move.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/UI/BattleMenu.gd" type="Script" id=2]
 
 [node name="BattleMenu" type="Panel"]
 anchor_right = 0.075
 anchor_bottom = 0.113
-script = ExtResource( 1 )
+rect_min_size = Vector2( 96, 0 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+def_unit_offset = Vector2( 36, 36 )
 
 [node name="BMButtonContainer" type="Control" parent="."]
 anchor_right = 1.0

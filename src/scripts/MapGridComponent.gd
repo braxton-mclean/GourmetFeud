@@ -3,12 +3,10 @@
 # Description: Generates a MapGrid based on the traversable defined in _init.
 
 extends Node
-# Called when the node enters the scene tree for the first time.
 
+export var debug_map : bool
 export var map_grid = []
-
-#func _ready():
-#	pass
+var tile_scene = preload("res://src/scenes/TileView.tscn")
 
 func initialize (traversableName):
 	var traversable = File.new()
@@ -26,15 +24,20 @@ func initialize (traversableName):
 			print ("Please check your traversables file, it may be empty.")
 	else:
 		print ("Traversable not found. Please check your scenes/Traversables directory.")
+	if debug_map:
+		visualize_map()
+
 
 func get_mapgrid():
 	return self.map_grid
+
 
 func parseCSV (value):
 	if value == "TRUE":
 		return 1 # 1 meaning, is traversable
 	elif value == "FALSE":
 		return 0 # 0 meaning, is not traversable
+
 
 func generateMapGridComponent (mapGridCSV, mapGridSize):
 	mapGridCSV = mapGridCSV.split('\n', false, 0)
@@ -47,3 +50,14 @@ func generateMapGridComponent (mapGridCSV, mapGridSize):
 			row.append(parseCSV(line[_width]))
 		arr.append(row)
 	map_grid = arr
+
+
+func visualize_map():
+	for row in range(0, len(map_grid)):
+		for col in range(0, len(map_grid[0])):
+			var tile = tile_scene.instance()
+			tile.position = Vector2(col * 48, row * 48)
+			if map_grid[row][col] == 0:
+				tile.modulate = Color(1,0,0)
+			add_child(tile)
+	pass
