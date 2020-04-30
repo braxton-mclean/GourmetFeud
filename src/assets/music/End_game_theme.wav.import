@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/End_game_theme.wav-1e9f914dc45e7e371ad44ad834ad4da0.sample"
+
+[deps]
+
+source_file="res://src/assets/music/End_game_theme.wav"
+dest_files=[ "res://.import/End_game_theme.wav-1e9f914dc45e7e371ad44ad834ad4da0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
