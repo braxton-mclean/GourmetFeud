@@ -46,6 +46,11 @@ animations = [ {
 "name": "move_left",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "move_down",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "move_right",
@@ -56,13 +61,8 @@ animations = [ {
 "name": "flourish",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 20 ) ],
-"loop": true,
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 23 ) ],
+"loop": false,
 "name": "move_up",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "move_down",
 "speed": 8.0
 } ]

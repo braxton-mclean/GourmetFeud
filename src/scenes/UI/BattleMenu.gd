@@ -23,3 +23,6 @@ func detach_from_unit():
 	attached_unit = null
 	set_position(Vector2(-100, -100))
 	pass
+
+func move_button_pressed():
+	attached_unit.position = Vector2(0, 0)

@@ -31,6 +31,7 @@ onready var coliseum = get_parent()
 onready var units = coliseum.get_node("Units")
 onready var battlemenu = get_parent().get_node("CanvasLayer/BattleMenu")
 onready var bm_waitbutton = battlemenu.get_node("BMButtonContainer/BMWaitButton")
+onready var mapgrid = get_parent().get_node("Ground/TileMap")
 
 signal finished_active_turns
 signal upcoming_turns_sorted
@@ -51,7 +52,6 @@ func _ready():
 	#yield(intro_node.animation_player, "finished_intro")
 	pass
 
-
 func initialize():
 	# Connect components to relevant signals
 	for unit in units.units:
@@ -61,9 +61,14 @@ func initialize():
 		unit.connect("unit_ready", self, "ready_unit")
 	self.connect("finished_gtp_phase", self, "sort_unit_queue")
 	self.calculate_upcoming_turns()
-	
-	print("initialized gametick")
 
+	# setting up the mapgrid
+	print("set up mapgrid for TraversablesColosseumA")
+	var mapGrid = coliseum.get_node("Ground/TileMap")
+	mapGrid.initialize("TraversablesColosseumA")
+	# done with mapgrid initialization
+
+	print("initialized gametick")
 
 func gametick_loop():
 	while active:
@@ -108,6 +113,7 @@ func sort_unit_queue():
 		self.readied_units.sort_custom(self, "sort_units_by_tick_counter")
 
 
+
 func sort_units_by_tick_counter(unit_1, unit_2):
 	var unit_1_tick = unit_1.get_tick_counter()
 	var unit_2_tick = unit_2.get_tick_counter()
@@ -146,7 +152,7 @@ func take_active_turns():
 			battlemenu.detach_from_unit()
 		else:
 			yield(unit.take_ai_turn(), "completed")
-		
+
 		unit.finish_active_turn()
 		
 		# Finally, remove the unit from the queue of readied units
@@ -159,7 +165,6 @@ func take_active_turns():
 		# It gets reset on the .resume() call above
 		self.readied_units.pop_front()
 	emit_signal("finished_active_turns")
-
 
 func calculate_upcoming_turns(_unit = null):
 	print("======= Turn Order =======")

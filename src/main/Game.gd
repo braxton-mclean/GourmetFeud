@@ -14,7 +14,6 @@ func start_combat():
 	coliseum.gametick.active = true
 	print("calling gametick loop")
 	coliseum.gametick.gametick_loop()
-	pass
 
 
 func load_coliseum(res_path: Resource):
