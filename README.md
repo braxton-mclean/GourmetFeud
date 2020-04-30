@@ -6,6 +6,8 @@ The gameplay is akin to Final Fantasy Tactics in battle style, where Units take 
 
 At most this is meant to be a functional prototype of a tactics-game engine with a cute story to allow exploration of different battle mechanics and styles.
 
+Playable version available at: http://theeverblack.com/gourmet_feud/GourmetFeud.html
+
 ## A technical note
 
 Gourmet Feud was developed with the Godot game engine in GDScript. There are Colosseums, the metaphorical arenas that enclose units and their enemies for combat. On a fundamental level, an opportunity was made to flesh out Colosseum TileMaps with the MapGridComponent, which follows a row, column order system that defines traversability that units can recognize if they can move to a particular tile or not.
