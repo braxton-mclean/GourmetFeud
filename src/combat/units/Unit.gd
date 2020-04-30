@@ -22,7 +22,7 @@ export var preview_sprite : Texture
 
 export var job : Resource
 
-export var player_party = false
+export var party_member = false
 
 
 func ready():
@@ -45,6 +45,10 @@ func take_active_turn():
 	else:
 		yield(get_tree().create_timer(.1), "timeout")
 	anim_sprite.play("active")
+
+
+func take_ai_turn():
+	return ai.take_turn()
 
 
 func finish_active_turn():
@@ -92,12 +96,17 @@ func set_selectable(value):
 func take_damage(hit):
 	stats.take_damage(hit)
 	if stats.health > 0:
+		
 		# play hurt animation
+		
 		pass
+	pass
 
 
 func _on_health_depleted():
 	selectable = false
 	anim_sprite.flip_v = true
+	
 	# play death animation
+	
 	emit_signal("unit_died", self)
