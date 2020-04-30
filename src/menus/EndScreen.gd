@@ -11,3 +11,7 @@ func _ready():
 func _on_Button_pressed(scene_to_load):
 	print(scene_to_load)
 	get_tree().change_scene(scene_to_load)
+	
+func _on_EndGame_pressed():
+	get_tree().quit()
+#Dont put end Game under Buttons or will iterate as a normal button
