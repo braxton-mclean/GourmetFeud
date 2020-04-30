@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/combat/Coliseum.gd" type="Script" id=1]
 [ext_resource path="res://src/combat/units/jobs/Noble.tres" type="Resource" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://src/assets/sprites/units/celica/celica_active/sprite_celica_active2.png" type="Texture" id=20]
 [ext_resource path="res://src/scenes/UI/CharacterInfoMenu.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/scenes/UI/CharacterInfoMenu2.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/assets/music/media.io_Soul Calibur II - Under the Stars of Destiny.wav" type="AudioStream" id=23]
 
 [node name="Coliseum" type="Node"]
 script = ExtResource( 1 )
@@ -96,12 +97,14 @@ speed = 1000
 [node name="TurnOrderPreview" parent="CanvasLayer" instance=ExtResource( 16 )]
 
 [node name="CelicaMenu" parent="CanvasLayer" instance=ExtResource( 22 )]
-visible = false
 position = Vector2( -6.91577, -4.55444 )
 
 [node name="AlmMenu" parent="CanvasLayer" instance=ExtResource( 21 )]
-visible = false
 position = Vector2( -7.50317, -3.43756 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+autoplay = true
 [connection signal="health_changed" from="Units/Alm/Stats" to="CanvasLayer/AlmMenu" method="_on_Stats_health_changed"]
 
 [editable path="Units/Alm"]
