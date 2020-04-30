@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/combat/units/actions/Move.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/UI/BattleMenu.gd" type="Script" id=2]
+[ext_resource path="res://src/scenes/UI/AttackMenu.gd" type="Script" id=3]
 
 [node name="BattleMenu" type="Panel"]
 anchor_right = 0.075
@@ -24,7 +25,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BMAttackButton" type="MenuButton" parent="BMButtonContainer"]
+[node name="BMMoveAttack" type="Button" parent="BMButtonContainer"]
+anchor_right = 1.0
+hint_tooltip = "Use this Unit's Movement to travel the battlefield.
+Usually only one Movement per turn."
+text = "Attack"
+align = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BMAttackMenuButton" type="MenuButton" parent="BMButtonContainer"]
+visible = false
 anchor_right = 1.0
 margin_bottom = 20.0
 hint_tooltip = "Take an Attack Action against a Unit within range of this Unit's equipped weapon."
@@ -57,4 +70,5 @@ align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="BMButtonContainer/BMMoveAttack" to="BMButtonContainer/BMMoveAttack" method="_on_BMAttackButton_pressed"]
 [connection signal="pressed" from="BMButtonContainer/BMMoveButton" to="BMButtonContainer/BMMoveButton" method="_on_BMMoveButton_pressed"]

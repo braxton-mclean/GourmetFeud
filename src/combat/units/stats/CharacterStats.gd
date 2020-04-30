@@ -37,6 +37,8 @@ func initialize(stats : StartingStats):
 	self.move = stats.move
 	self.default_moves = stats.default_moves
 	self.default_actions = stats.default_actions
+	self.remaining_moves = default_moves
+	self.remaining_actions = default_actions
 
 
 func set_max_health(value):
