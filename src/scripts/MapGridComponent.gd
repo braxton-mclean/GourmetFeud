@@ -2,11 +2,19 @@
 # Author: Ethan Bovard
 # Description: Generates a MapGrid based on the traversable defined in _init.
 
-extends Node
+extends Node2D
+
+signal destination_chosen
+
+onready var tile_map = $TileMap
 
 export var debug_map : bool
 export var map_grid = []
 var tile_scene = preload("res://src/scenes/TileView.tscn")
+onready var camera_node = get_parent().get_node("CanvasLayer/Camera2D")
+onready var coliseum = get_parent()
+
+var detecting_mouse : bool = false
 
 func initialize (traversableName):
 	var traversable = File.new()
@@ -61,3 +69,16 @@ func visualize_map():
 				tile.modulate = Color(1,0,0)
 			add_child(tile)
 	pass
+
+
+func enable_mouse_detection():
+	detecting_mouse = true
+
+func _unhandled_input(event):
+	if detecting_mouse and event is InputEventMouseButton:
+		var mouse_pos = get_global_mouse_position() / 3
+		print(mouse_pos)
+		var tile_pos = tile_map.world_to_map(mouse_pos)
+		print(tile_pos)
+		detecting_mouse = false
+		emit_signal("destination_chosen", Vector2(tile_pos.y, tile_pos.x))

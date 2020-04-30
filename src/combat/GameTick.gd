@@ -31,6 +31,8 @@ onready var coliseum = get_parent()
 onready var units = coliseum.get_node("Units")
 onready var battlemenu = get_parent().get_node("CanvasLayer/BattleMenu")
 onready var bm_waitbutton = battlemenu.get_node("BMButtonContainer/BMWaitButton")
+onready var almstatsmenu = get_parent().get_node("CanvasLayer/AlmMenu")
+onready var celicastatsmenu = get_parent().get_node("CanvasLayer/CelicaMenu")
 onready var map = get_parent().get_node("Map")
 
 signal finished_active_turns
@@ -59,13 +61,16 @@ func initialize():
 		self.connect("started_gtp_phase", unit, "progress_tick_counter")
 		unit.connect("completed_turn", self, "calculate_upcoming_turns")
 		unit.connect("unit_ready", self, "ready_unit")
+		unit.connect("unit_died", self, "unready_unit")
+		map.map_grid[unit.location.y][unit.location.x] = 0
 	self.connect("finished_gtp_phase", self, "sort_unit_queue")
 	self.calculate_upcoming_turns()
-
+	
 	print("initialized gametick")
 
 func gametick_loop():
 	while active:
+		check_win_condition()
 		# ===== Start of GameTick =====
 		self.gametick_counter += 1
 		emit_signal("started_gametick", self.gametick_counter)
@@ -96,16 +101,39 @@ func gametick_loop():
 		
 		# ===== Finished GameTick =====
 		emit_signal("finished_gametick")
+		
+
+
+func check_win_condition():
+	var has_lost = true
+	var has_won = true
+	for unit in units.get_party_members():
+		if not unit.is_dead:
+			has_lost = false
+	
+	for unit in units.get_other_units():
+		if not unit.is_dead:
+			has_won = false
+	
+	if has_won:
+		print("victory!")
+		get_tree().change_scene("res://src/menus/EndScreen.tscn")
+	if has_lost:
+		pass
 
 
 func ready_unit(unit):
 	self.readied_units.append(unit)
 
 
+func unready_unit(unit):
+	self.readied_units.erase(unit)
+	self.calculate_upcoming_turns()
+
+
 func sort_unit_queue():
 	if not self.readied_units.empty():
 		self.readied_units.sort_custom(self, "sort_units_by_tick_counter")
-
 
 
 func sort_units_by_tick_counter(unit_1, unit_2):
@@ -122,6 +150,7 @@ func sort_units_by_tick_counter(unit_1, unit_2):
 
 func take_active_turns():
 	while not self.readied_units.empty():
+		check_win_condition()
 		var unit = self.readied_units.front()
 		print(unit.name + "'s Turn!")
 		
@@ -131,6 +160,20 @@ func take_active_turns():
 			Then finish with unit cleaning up its end of turn
 			(ie. wind-down)
 		"""
+		#Allows the different battle menus to appear on their turn
+		if unit.name == "Alm":
+			almstatsmenu.attachunit(unit)
+			almstatsmenu._update()
+			almstatsmenu.toggle_visibility(true)
+			celicastatsmenu.toggle_visibility(false)
+		elif unit.name == "Celica":
+			celicastatsmenu.attachunit(unit)
+			celicastatsmenu._update()
+			almstatsmenu.toggle_visibility(false)
+			celicastatsmenu.toggle_visibility(true)
+		else:
+			almstatsmenu.toggle_visibility(false)
+			celicastatsmenu.toggle_visibility(false)
 		
 		yield(unit.take_active_turn(), "completed")
 		
