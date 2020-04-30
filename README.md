@@ -6,7 +6,12 @@ The gameplay is akin to Final Fantasy Tactics in battle style, where Units take 
 
 At most this is meant to be a functional prototype of a tactics-game engine with a cute story to allow exploration of different battle mechanics and styles.
 
-Playable version available at: http://theeverblack.com/gourmet_feud/GourmetFeud.html
+Playable version available at: http://theeverblack.com/gourmet_feud/GourmetFeud.html or the releases tab at the top for a downloadable exeutable
+
+Use your arrow keys to move the camera around the map
+Notice the Turn Order at the top, this is to let you think carefully about positioning and resource usage!
+Click and Action like Attack (to attack an adjacent enemy) or Move and select your destination to travel to. Currently there is no move limit, unfortunately... 
+Once all enemies are defeated, the game ends!
 
 ## A technical note
 
