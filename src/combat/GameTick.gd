@@ -70,6 +70,7 @@ func initialize():
 
 func gametick_loop():
 	while active:
+		check_win_condition()
 		# ===== Start of GameTick =====
 		self.gametick_counter += 1
 		emit_signal("started_gametick", self.gametick_counter)
@@ -100,7 +101,7 @@ func gametick_loop():
 		
 		# ===== Finished GameTick =====
 		emit_signal("finished_gametick")
-		check_win_condition()
+		
 
 
 func check_win_condition():
@@ -115,7 +116,8 @@ func check_win_condition():
 			has_won = false
 	
 	if has_won:
-		pass
+		print("victory!")
+		get_tree().change_scene("res://src/menus/EndScreen.tscn")
 	if has_lost:
 		pass
 
@@ -148,6 +150,7 @@ func sort_units_by_tick_counter(unit_1, unit_2):
 
 func take_active_turns():
 	while not self.readied_units.empty():
+		check_win_condition()
 		var unit = self.readied_units.front()
 		print(unit.name + "'s Turn!")
 		
