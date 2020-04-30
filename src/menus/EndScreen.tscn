@@ -64,7 +64,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
 texture_focused = ExtResource( 6 )
 
-[node name="EndGameMusic" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/MainMenu" to="." method="_on_MainMenu_pressed"]
