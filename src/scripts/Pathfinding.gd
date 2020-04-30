@@ -11,9 +11,6 @@ var wall = 0
 var clear = 1
 var goal = 2
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func findInSeen (seen, element):
 	for list in seen:
@@ -52,10 +49,6 @@ func bfs(grid, start, dest):
 		var lastElementInPath = path[-1]
 		var y = lastElementInPath[0]
 		var x = lastElementInPath[1]
-		
-#		# sanity check in iteration
-#		if x >= width or y >= height:
-#			return null
 			
 		if grid[y][x] == goal:
 			return path

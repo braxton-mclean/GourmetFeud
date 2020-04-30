@@ -24,11 +24,10 @@
 script = ExtResource( 1 )
 map_data = "TraversablesColosseumA"
 
-[node name="Map" parent="." instance=ExtResource( 9 )]
-debug_map = true
-
 [node name="GameTick" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="Map" parent="." instance=ExtResource( 9 )]
 
 [node name="Units" type="YSort" parent="."]
 script = ExtResource( 3 )
@@ -39,7 +38,7 @@ preview_sprite = ExtResource( 17 )
 job = ExtResource( 2 )
 party_member = true
 
-[node name="AnimatedSprite" parent="Units/Alm/Sprite" index="1"]
+[node name="AnimatedSprite" parent="Units/Alm/Sprite" index="0"]
 frames = ExtResource( 13 )
 
 [node name="Celica" parent="Units" instance=ExtResource( 6 )]
@@ -48,7 +47,7 @@ preview_sprite = ExtResource( 20 )
 job = ExtResource( 2 )
 party_member = true
 
-[node name="AnimatedSprite" parent="Units/Celica/Sprite" index="1"]
+[node name="AnimatedSprite" parent="Units/Celica/Sprite" index="0"]
 frames = ExtResource( 10 )
 
 [node name="EnemySoldier" parent="Units" instance=ExtResource( 6 )]
@@ -56,7 +55,7 @@ position = Vector2( 720, 384 )
 preview_sprite = ExtResource( 18 )
 job = ExtResource( 8 )
 
-[node name="AnimatedSprite" parent="Units/EnemySoldier/Sprite" index="1"]
+[node name="AnimatedSprite" parent="Units/EnemySoldier/Sprite" index="0"]
 frames = ExtResource( 11 )
 
 [node name="EnemyBrigand" parent="Units" instance=ExtResource( 6 )]
@@ -64,7 +63,7 @@ position = Vector2( 1056, 384 )
 preview_sprite = ExtResource( 19 )
 job = ExtResource( 7 )
 
-[node name="AnimatedSprite" parent="Units/EnemyBrigand/Sprite" index="1"]
+[node name="AnimatedSprite" parent="Units/EnemyBrigand/Sprite" index="0"]
 frames = ExtResource( 12 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
