@@ -9,7 +9,8 @@ var modifiers = {}
 
 var max_health : int setget set_max_health
 var health : int
-var strength : int
+var strenth_attributes = []
+var strength : int 
 var vitality : int
 var charisma : int
 var confidence : int

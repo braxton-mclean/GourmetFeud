@@ -33,6 +33,7 @@ onready var battlemenu = get_parent().get_node("CanvasLayer/BattleMenu")
 onready var bm_waitbutton = battlemenu.get_node("BMButtonContainer/BMWaitButton")
 onready var almstatsmenu = get_parent().get_node("CanvasLayer/AlmMenu")
 onready var celicastatsmenu = get_parent().get_node("CanvasLayer/CelicaMenu")
+onready var map = get_parent().get_node("Map")
 
 signal finished_active_turns
 signal upcoming_turns_sorted
@@ -53,7 +54,6 @@ func _ready():
 	#yield(intro_node.animation_player, "finished_intro")
 	pass
 
-
 func initialize():
 	# Connect components to relevant signals
 	for unit in units.units:
@@ -63,8 +63,8 @@ func initialize():
 		unit.connect("unit_ready", self, "ready_unit")
 	self.connect("finished_gtp_phase", self, "sort_unit_queue")
 	self.calculate_upcoming_turns()
-	print("initialized gametick")
 
+	print("initialized gametick")
 
 func gametick_loop():
 	while active:
@@ -109,6 +109,7 @@ func sort_unit_queue():
 		self.readied_units.sort_custom(self, "sort_units_by_tick_counter")
 
 
+
 func sort_units_by_tick_counter(unit_1, unit_2):
 	var unit_1_tick = unit_1.get_tick_counter()
 	var unit_2_tick = unit_2.get_tick_counter()
@@ -127,12 +128,9 @@ func take_active_turns():
 		print(unit.name + "'s Turn!")
 		
 		"""
-			Instead of Unit taking control:
-		unit.take_turn()
-		yield(unit, "completed_turn")
 			Have Unit set up anything particular with start of turn 
-			(ie. animate, wind-up) 
-			which yields a state to resume once the turn is completed 
+			(ie. flourish, wind-up) 
+			Then finish with unit cleaning up its end of turn
 			(ie. wind-down)
 		"""
 		#Allows the different battle menus to appear on their turn
@@ -152,16 +150,19 @@ func take_active_turns():
 		
 		yield(unit.take_active_turn(), "completed")
 		
-		# Set up battle menu at Unit location w/ small offset
-		battlemenu.attach_to_unit(unit)
-		# set_position(Vector2(unit.position.x + 32, unit.position.y + 32))
-		# TODO: Connect Battle Menu button events to Unit specifics like navigation etc.
-		
-		# Set yield to UI's turn complete signal (The player selects "Wait")
-		yield(bm_waitbutton, "pressed")
-		
-		# Once complete signal received, let unit finish its active turn (ie. wind down)
-		battlemenu.detach_from_unit()
+		if (unit.party_member):
+			# Tell BattleMenu to attach to Unit: 
+			# Sets tracking, assigns button connections, etc.
+			battlemenu.attach_to_unit(unit)
+			
+			# Set yield to UI's turn complete signal (The player selects "Wait")
+			yield(bm_waitbutton, "pressed")
+			
+			# Once complete signal received, let unit finish its active turn (ie. wind down)
+			battlemenu.detach_from_unit()
+		else:
+			yield(unit.take_ai_turn(), "completed")
+
 		unit.finish_active_turn()
 		
 		# Finally, remove the unit from the queue of readied units
@@ -174,7 +175,6 @@ func take_active_turns():
 		# It gets reset on the .resume() call above
 		self.readied_units.pop_front()
 	emit_signal("finished_active_turns")
-
 
 func calculate_upcoming_turns(_unit = null):
 	print("======= Turn Order =======")

@@ -5,7 +5,7 @@ var gametick : int
 var tick_counter : int
 
 
-func _init(unit, gametick : int, tick_counter : int):
-	self.unit = unit
-	self.gametick = gametick
-	self.tick_counter = tick_counter
+func _init(given_unit, given_gametick : int, given_tick_counter : int):
+	self.unit = given_unit
+	self.gametick = given_gametick
+	self.tick_counter = given_tick_counter
